@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { QuestionRes, Question } from '../models/question';
+import { Question } from '../models/question.interface';
+import { QuestionRes } from '../models/questionRes.interface';
 
 const BASE_API_URL = 'https://opentdb.com/api.php';
 

@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { fetchQuestion, updateCurrentIndexToNextQuestion } from 'src/app/app-state/actions';
 import { setGameOver, wrongAnswerQuestion } from 'src/app/app-state/actions/game.action';
 import { getCorrectNumbers, getCurrentQuestionIndex, getisGameOver, getNumberOfQuestions, getQuestionsList, getWrongNumbers } from 'src/app/app-state/selectors/game.selector';
-import { Question } from 'src/app/models/question';
+import { Question } from 'src/app/models/question.interface';
 
 @Component({
   selector: 'app-game-page',

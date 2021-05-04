@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Question } from "src/app/models/question";
+import { Question } from "src/app/models/question.interface";
 
 const FETCH_QUESTION = "[GAME] Fetch Question";
 const FETCH_QUESTION_SUCCESS = "[GAME] Fetch Question Success";

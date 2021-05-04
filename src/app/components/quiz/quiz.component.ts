@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnI
 import { NgForm } from '@angular/forms';
 import { interval, Subject } from 'rxjs';
 import { map, take, takeUntil, tap } from 'rxjs/operators';
-import { Question } from 'src/app/models/question';
+import { Question } from 'src/app/models/question.interface';
 
 let nextId = 0;
 

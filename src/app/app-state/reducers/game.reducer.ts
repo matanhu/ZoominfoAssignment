@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { Question } from "src/app/models/question";
+import { Question } from "src/app/models/question.interface";
 import { fetchQuestion, fetchQuestionFailed, fetchQuestionSuccess, updateCurrentIndexToNextQuestion } from "../actions";
 import { setGameOver, wrongAnswerQuestion } from "../actions/game.action";
 

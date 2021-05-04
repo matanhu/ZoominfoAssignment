@@ -1,8 +1,3 @@
-export interface QuestionRes {
-  response_code: number;
-  results: Question[];
-}
-
 export interface Question {
   questionIndex: number;
   category: string;

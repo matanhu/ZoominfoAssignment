@@ -23,12 +23,12 @@ export class GameEffects {
       concatMap(([action, questionList]) => {
         const questionsList = questionList;
         return this.opentdbService.getQuestion().pipe(
-          map(res => {
-            const isExist = questionsList.findIndex(q => q && q.question && q.question === res.question);
+          map(question => {
+            const isExist = questionsList.findIndex(q => q && q.question && q.question === question.question);
             if (isExist > -1) {
               return fetchQuestion();
             } else {
-              return fetchQuestionSuccess({ question: res });
+              return fetchQuestionSuccess({ question });
             }
           },
             catchError((error: any) => of(fetchQuestionFailed({ error: 'Fetch customers error' }))))
