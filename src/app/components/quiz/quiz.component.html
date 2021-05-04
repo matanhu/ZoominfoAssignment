@@ -1,0 +1,25 @@
+<div class="product-item" *ngIf="question">
+    <div class="product-item-content p-p-3">
+        <div class="p-grid p-jc-between p-ai-center">
+            <h4 class="p-col">{{question.question}}</h4>
+            <div class="p-col-2">
+                <div>Time to question: </div>
+                <div *ngIf="countdown$ | async">{{ countdown$ | async }} Seconds</div>
+            </div>
+        </div>
+        <form #f="ngForm" (ngSubmit)="onAns(f)">
+            <div class="p-grid p-jc-around">
+                <ng-container *ngFor="let ans of question.all_answers; let i = index">
+                    <input class="p-d-none btn-radio" type="radio" [id]="compId + '_ans_' + i" name="quiz" [value]="ans" ngModel>
+                    <label [for]="compId + '_ans_' + i" class="p-col-5 p-text-center p-shadow-3 p-m-2 p-p-3">{{ans}}</label>
+                </ng-container>
+            </div>
+            <div class="btn-wrapper p-grid p-jc-around p-pt-3">
+                <button pButton pRipple type="submit" label="Submit"></button>
+            </div>
+            <div class="error-message p-text-center p-font-bold p-pt-2" [ngStyle]="{color:'var(--pink-600)'}" *ngIf="isIncorrecAns">
+                Wrong, Try Again
+            </div>
+        </form>
+    </div>
+</div>

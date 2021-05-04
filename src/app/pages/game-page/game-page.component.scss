@@ -1,0 +1,14 @@
+:host {
+     ::ng-deep {
+        .p-ripple {
+            display: none;
+        }
+    }
+}
+
+.game-over {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    text-align: center;
+}

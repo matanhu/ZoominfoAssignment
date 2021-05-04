@@ -1,0 +1,22 @@
+<ng-container *ngIf="!(isGameOver$ | async); else gameOver">
+    <p-carousel #carousel [value]="(questions$ | async)" [numVisible]="1" [numScroll]="1" [circular]="false" (onPage)="onPage($event)">
+        <ng-template pTemplate="header">
+            <h3 class="p-col p-text-center">ZoomInfo Questions</h3>
+            <div class="p-grid p-jc-between p-ai-center p-p-3">
+                <div class="p-col">
+                    <div [ngStyle]="{color:'var(--green-600)'}">Correct Ans: {{correctAns$ | async}}</div>
+                    <div [ngStyle]="{color:'var(--pink-600)'}">Incorrect Ans: {{inCorrectAns$ | async}}</div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template let-question pTemplate="item">
+            <ng-container *ngIf="currentPage === question?.questionIndex">
+                <app-quiz [question]="question" (onCorrectAns)="onCorrectAns($event)" (onIncorrectAns)="onIncorrectAns($event)" (onTimeout)="onTimeout($event)"></app-quiz>
+            </ng-container>
+        </ng-template>
+    </p-carousel>
+</ng-container>
+
+<ng-template #gameOver>
+    <div class="game-over">Game Over</div>
+</ng-template>
